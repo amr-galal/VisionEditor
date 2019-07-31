@@ -1,0 +1,6 @@
+<ng-container *ngIf="!service.loaded">
+    <app-directory></app-directory>
+</ng-container>
+<ng-container *ngIf="service.loaded">
+    <app-home></app-home>
+</ng-container>

@@ -1,0 +1,50 @@
+<div *ngIf="!startCode" class="row" style="background-color: black; height: 100%; width: 100%">
+   <div class="col-6 offset-3 text-center" style="margin-top: 40vh">
+    <button (click)="start()" class="btn btn-danger">Start</button>
+   </div>
+</div>
+
+<div *ngIf="startCode" class="black container-fluid h-100">
+    <div class="row h-100">
+        <div class="col-12">
+            <div class="h-100 d-flex flex-column">
+                <div class="row">
+                    <div (click)="parse(0)" class="col-3 mr-auto inputBtn" [ngClass]="{'black' : upLeft, 'white' : !upLeft}"><span class="text">{{upLeftText}}</span></div>
+                    <div (click)="parse(2)" class="col-3 inputBtn" [ngClass]="{'black' : upMiddle, 'white' : !upMiddle}"><span class="text">{{upMiddleText}}</span></div>
+                    <div (click)="parse(3)" class="col-3 ml-auto inputBtn" [ngClass]="{'black' : upRight, 'white' : !upRight}"><span class="text">{{upRightText}}</span></div>
+                </div>
+                <div style="height:30px"></div>
+                <div class="row flex-grow-1">
+                    <div (click)="parse(1)" class="align-self-end col-3 mr-auto inputBtn mt-5" [ngClass]="{'black' : downLeft, 'white' : !downLeft}"><span class="text">{{downLeftText}}</span></div>
+
+                    <div style="height: 100%;" class="col-5 inputBtn">
+                        <span style="border: solid 2px;" class="pt-2 text2">
+                        <!-- <span class="pt-2 text2"> -->
+                            <h5 *ngIf="selectCreate == 1 && fileDirectory == 1" style="font-weight: 400">Directory Name: {{fileDirectoryName}}</h5>
+                            <h5 *ngIf="selectCreate == 1 && fileDirectory == 0" style="font-weight: 400">File Name: {{fileDirectoryName}}</h5>
+                            <h5 style="font-weight: 400">Directory: {{directory}}</h5>
+                            <div class="row mt-4 ml-3 mr-3" style="text-align: left; font-size: large">
+                                <div class="col-6">
+                                    <ng-container style="font-weight: 400" *ngFor="let data of directoryList; let i = index">
+                                        <ng-container *ngIf="i % 2 == 0">
+                                            <h6>{{i}} - {{data}}</h6>
+                                        </ng-container>
+                                    </ng-container>
+                                </div>
+                                <div class="col-6">
+                                    <ng-container style="font-weight: 400" *ngFor="let data of directoryList; let i = index">
+                                        <ng-container *ngIf="i % 2 == 1">
+                                            <h6>{{i}} - {{data}}</h6>
+                                        </ng-container>
+                                    </ng-container>
+                                </div>
+                            </div>
+                        </span>
+                    </div>
+
+                    <div (click)="parse(4)" class="align-self-end col-3 ml-auto inputBtn mt-5" [ngClass]="{'black' : downRight, 'white' : !downRight}"><span class="text">{{downRightText}}</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

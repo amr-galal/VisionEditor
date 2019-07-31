@@ -1,0 +1,21 @@
+<div class="black container-fluid h-100">
+    <div *ngIf="boxSize === 300" class="row h-100">
+        <div class="col-12">
+            <div class="h-100 d-flex flex-column">
+                <div class="row">
+                    <div (click)="parse(0)" class="col-3 mr-auto inputBtn" [ngClass]="{'black' : upLeft, 'white' : !upLeft}"><span class="text">{{upLeftText}}</span></div>
+                    <div (click)="parse(2)" class="col-3 inputBtn" [ngClass]="{'black' : upMiddle, 'white' : !upMiddle}"><span class="text">{{upMiddleText}}</span></div>
+                    <div (click)="parse(3)" class="col-3 ml-auto inputBtn" [ngClass]="{'black' : upRight, 'white' : !upRight}"><span class="text">{{upRightText}}</span></div>
+                </div>
+                <div style="height:30px"></div>
+                <div class="row flex-grow-1">
+                    <div (click)="parse(1)" class="align-self-end col-3 mr-auto inputBtn mt-5" [ngClass]="{'black' : downLeft, 'white' : !downLeft}"><span class="text">{{downLeftText}}</span></div>
+                    <div #EditorWrapper [style.height.px]="height" class="col-5 m-1 codeEditorDiv">
+                        <ace-editor #editor class="codeEditor" [(text)]="text" [mode]="mode" [theme]="'monokai'"  [readOnly]="false" [autoUpdateContent]="true"></ace-editor>
+                    </div>
+                    <div (click)="parse(4)" class="align-self-end col-3 ml-auto inputBtn mt-5" [ngClass]="{'black' : downRight, 'white' : !downRight}"><span class="text">{{downRightText}}</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
